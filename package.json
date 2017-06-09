@@ -1,6 +1,6 @@
 {
   "name": "colm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Column formatter for the command line",
   "main": "index.js",
   "scripts": {
