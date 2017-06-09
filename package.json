@@ -4,7 +4,9 @@
   "description": "Column formatter for the command line",
   "main": "index.js",
   "scripts": {
-    "test": "eslint -c .eslintrc index.js"
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint -c .eslintrc index.js",
+    "test:unit": "mocha -r test/index.js test/**/*.spec.js"
   },
   "keywords": [
     "column",
@@ -27,6 +29,8 @@
     "term-size": "~1.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "chai": "^4.0.2",
+    "eslint": "^3.19.0",
+    "mocha": "^3.4.2"
   }
 }
