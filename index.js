@@ -13,7 +13,6 @@ function countColumns(data) {
 function getColumnWidths(data, colCount, termWidth) {
     const colMaxWidth = [];
     const colTotalWidth = [];
-    const rows = data.length;
     const separatorCount = colCount - 1;
     data.forEach(row => {
         for (let i = 0; i < colCount; i += 1) {
@@ -25,25 +24,16 @@ function getColumnWidths(data, colCount, termWidth) {
             colMaxWidth[i] = Math.max(currTotal, rowItemLength);
         }
     });
-    const colAvgWidth = colTotalWidth.map(total => Math.ceil(total / rows));
-    // determine if we're over width
     const getCurrentTotalWidth = colWidths => colWidths.reduce((curr, next) => curr + next, 0) + separatorCount;
     const naiveWidth = getCurrentTotalWidth(colMaxWidth);
     if (naiveWidth > termWidth) {
-        let difference = naiveWidth - termWidth;
-        while (difference > 0) {
-            let targetIndex = 0,
-                targetRatio = 0;
-            colMaxWidth.forEach((colWidth, index) => {
-                const ratio = colWidth / colAvgWidth[index];
-                if (ratio > targetRatio) {
-                    targetRatio = ratio;
-                    targetIndex = index;
-                }
-            });
-            colMaxWidth[targetIndex] -= 1;
-            difference -= 1;
-        }
+        const widthOfColumns = naiveWidth - separatorCount;
+        const difference = naiveWidth - termWidth;
+        const colWidthRatios = colMaxWidth.map(width => (width / widthOfColumns) * difference);
+        return colMaxWidth.map((maxWidth, index) => {
+            const newWidth = maxWidth - Math.round(colWidthRatios[index]);
+            return (newWidth > 0) ? newWidth : 0;
+        });
     }
     return colMaxWidth;
 }
