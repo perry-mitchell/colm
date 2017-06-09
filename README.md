@@ -1,6 +1,8 @@
 # colm
 Column formatter for terminal applications _(Pronouced "column")_
 
+[![Build Status](https://travis-ci.org/perry-mitchell/colm.svg?branch=master)](https://travis-ci.org/perry-mitchell/colm) [![npm version](https://badge.fury.io/js/colm.svg)](https://www.npmjs.com/package/colm)
+
 ## About
 `colm` is a column formatter for text designed to be written to standard-out in the terminal. It came to be in light of too few options to format and align columns of text in the terminal.
 
