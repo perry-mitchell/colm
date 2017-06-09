@@ -81,17 +81,3 @@ function mergeOptions(ops) {
 }
 
 module.exports = formatColumns;
-
-// const formatColumns = require("colm");
-const { bold } = require("chalk"); // colours and styles
-
-console.log("");
-console.log(formatColumns([
-    ["NodeJS Version",  "Supports Destructuring",   "Released"].map(heading => bold(heading)),
-    ["8.x",             "Yes",                      "2017-05-30"],
-    ["7.x",             "Yes",                      "2016-10-25"],
-    ["6.x",             "Yes",                      "2016-04-26"],
-    ["5.x",             "No",                       "2015-10-29"],
-    ["4.x",             "No",                       "2015-09-08"]
-]));
-console.log("");
