@@ -1,0 +1,32 @@
+{
+  "name": "colm",
+  "version": "0.1.0",
+  "description": "Column formatter for the command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint -c .eslintrc index.js"
+  },
+  "keywords": [
+    "column",
+    "terminal",
+    "cli",
+    "format",
+    "formatter",
+    "columns",
+    "cols"
+  ],
+  "author": "Perry Mitchell <perry@perrymitchell.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perry-mitchell/colm"
+  },
+  "dependencies": {
+    "pad": "~1.1.0",
+    "strip-ansi": "^3.0.1",
+    "term-size": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
+}
